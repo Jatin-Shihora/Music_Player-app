@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="#03A9F4">
+    android:background="@color/colorAccent">
 
     <LinearLayout
         android:id="@+id/ll_player_controls"
@@ -18,45 +18,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/undo_icon"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
 
         <ImageButton
             android:id="@+id/img_btn_previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/previous_icon"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
 
         <ImageButton
             android:id="@+id/img_btn_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/play_icon"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
 
         <ImageButton
             android:id="@+id/img_btn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/next_icon"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
 
         <ImageButton
             android:id="@+id/img_btn_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/ic_settings"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/start_time"
-            android:textColor="@android:color/white"
+            android:textColor="?android:attr/colorActivatedHighlight"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -81,18 +81,18 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="@color/text_color"
+            android:backgroundTint="@color/design_default_color_error"
             android:fitsSystemWindows="true"
-            android:progressTint="@color/text_color"
-            android:thumbTint="@color/text_color"
-            app:tickMarkTint="#21D4F3" />
+            android:progressTint="@color/design_default_color_error"
+            android:thumbTint="@android:color/holo_purple"
+            app:tickMarkTint="?android:attr/colorEdgeEffect" />
 
         <TextView
             android:id="@+id/tv_total_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/final_time"
-            android:textColor="@android:color/white"
+            android:textColor="?android:attr/colorActivatedHighlight"
             android:textSize="15sp"
             android:textStyle="bold" />
     </LinearLayout>

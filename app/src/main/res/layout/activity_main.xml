@@ -6,6 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/design_default_color_primary"
     tools:context=".Activity.MainActivity">
 
     <RelativeLayout
@@ -17,7 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
         <LinearLayout
@@ -35,16 +36,17 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_below="@id/ll_include_controls"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/design_default_color_primary_dark">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
-                app:tabBackground="@color/colorPrimary"
+                app:tabBackground="@color/design_default_color_primary"
                 app:tabGravity="fill"
-                app:tabIndicatorColor="@color/colorPrimary"
+                app:tabIndicatorColor="@color/design_default_color_primary_dark"
                 app:tabMode="fixed"
                 app:tabSelectedTextColor="@color/text_color"
                 app:tabTextColor="@color/off_color" />
@@ -56,6 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ll_tab_layout"
+            android:backgroundTint="@color/drawer_color"
+            android:foregroundTint="@color/drawer_color"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

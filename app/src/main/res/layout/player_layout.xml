@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@color/drawer_color">
+    android:background="@color/color_black">
 
     <LinearLayout
         android:id="@+id/ll_player_controls"
@@ -18,45 +18,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/design_default_color_primary_dark"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/undo_icon"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
 
         <ImageButton
             android:id="@+id/img_btn_previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:backgroundTint="@color/design_default_color_primary_dark"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/previous_icon"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
 
         <ImageButton
             android:id="@+id/img_btn_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/design_default_color_primary_dark"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/play_icon"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
 
         <ImageButton
             android:id="@+id/img_btn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/design_default_color_primary_dark"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/next_icon"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
 
         <ImageButton
             android:id="@+id/img_btn_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:backgroundTint="@color/design_default_color_primary_dark"
+            android:backgroundTint="@color/design_default_color_error"
             android:src="@drawable/ic_settings"
-            android:tint="#2196F3" />
+            android:tint="@android:color/holo_orange_light" />
     </LinearLayout>
 
     <LinearLayout
@@ -83,7 +83,7 @@
             android:layout_gravity="center"
             android:backgroundTint="@color/design_default_color_error"
             android:fitsSystemWindows="true"
-            android:progressTint="@color/text_color"
+            android:progressTint="@color/design_default_color_error"
             android:thumbTint="@color/text_color"
             app:tickMarkTint="#1221D4F3" />
 

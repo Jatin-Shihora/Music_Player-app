@@ -10,7 +10,7 @@
         android:id="@+id/list_playlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/gray_color"
+        android:divider="@android:color/holo_orange_dark"
         android:dividerHeight="1dp"
         android:longClickable="true" />
 
