@@ -17,12 +17,11 @@ import android.widget.SearchView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-//import android.widget.Toolbar;
-import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -40,10 +39,7 @@ import com.jatin.musicplayer13.Fragments.CurrentSongFragment;
 import com.jatin.musicplayer13.Fragments.FavSongFragment;
 import com.jatin.musicplayer13.Model.SongsList;
 import com.jatin.musicplayer13.R;
-
 import java.util.ArrayList;
-
-
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,AllSongFragment.createDataParse,FavSongFragment.createDataParsed,CurrentSongFragment.createDataParsed {
 
@@ -569,4 +565,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mediaPlayer.release();
         handler.removeCallbacks(runnable);
     }
-}
+
+    }
+
