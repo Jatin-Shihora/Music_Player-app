@@ -14,7 +14,7 @@ import com.jatin.musicplayer13.Fragments.FavSongFragment;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private ContentResolver contentResolver;
-    private String title[] = {"All SONGS","CURRENT PLAYLIST", "FAVORITES"};
+    private String title[] = {"All SONGS","CURRENT PLAYLIST", "FAVORITES"};//naming the tabs
 
     public ViewPagerAdapter(FragmentManager fm, ContentResolver contentResolver) {
         super(fm);
@@ -22,7 +22,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem(int position)
+    {
         switch (position) {
             case 0:
                 return AllSongFragment.getInstance(position, contentResolver);

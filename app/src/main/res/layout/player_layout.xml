@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/design_default_color_error"
+            android:backgroundTint="@color/design_default_color_on_secondary"
             android:src="@drawable/undo_icon"
             android:tint="@android:color/holo_orange_light" />
 
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:backgroundTint="@color/design_default_color_error"
+            android:backgroundTint="@color/design_default_color_on_secondary"
             android:src="@drawable/previous_icon"
             android:tint="@android:color/holo_orange_light" />
 
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/design_default_color_error"
+            android:backgroundTint="@color/design_default_color_on_secondary"
             android:src="@drawable/play_icon"
             android:tint="@android:color/holo_orange_light" />
 
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/design_default_color_error"
+            android:backgroundTint="@color/design_default_color_on_secondary"
             android:src="@drawable/next_icon"
             android:tint="@android:color/holo_orange_light" />
 
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:backgroundTint="@color/design_default_color_error"
+            android:backgroundTint="@color/design_default_color_on_secondary"
             android:src="@drawable/ic_settings"
             android:tint="@android:color/holo_orange_light" />
     </LinearLayout>

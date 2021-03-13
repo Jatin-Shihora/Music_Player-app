@@ -18,7 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/design_default_color_primary_dark"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
         <LinearLayout
@@ -37,14 +37,14 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_below="@id/ll_include_controls"
             android:background="@color/colorPrimary"
-            android:backgroundTint="@color/design_default_color_primary_dark">
+            android:backgroundTint="@color/design_default_color_on_secondary">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
-                app:tabBackground="@color/design_default_color_primary"
+                app:tabBackground="@color/design_default_color_on_secondary"
                 app:tabGravity="fill"
                 app:tabIndicatorColor="@color/design_default_color_primary_dark"
                 app:tabMode="fixed"
@@ -58,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ll_tab_layout"
-            android:backgroundTint="@color/drawer_color"
+            android:background="@color/color_black"
+            android:backgroundTint="@color/color_black"
             android:foregroundTint="@color/drawer_color"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
@@ -68,8 +69,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="40dp"
             android:focusable="true"
             android:src="@drawable/refresh_icon"
             app:backgroundTint="@color/design_default_color_primary_dark"
@@ -82,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/drawer_color"
+        android:background="@color/color_black"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/drawer_header_layout"
         app:itemIconTint="@color/text_color"

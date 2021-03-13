@@ -1,0 +1,7 @@
+slepp timer
+ahuffle
+current song tile highlight
+refresh +playlist
+notification bar
+album image on tap
+editable playlist
