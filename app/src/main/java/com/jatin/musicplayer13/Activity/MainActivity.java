@@ -39,6 +39,7 @@ import com.jatin.musicplayer13.Fragments.CurrentSongFragment;
 import com.jatin.musicplayer13.Fragments.FavSongFragment;
 import com.jatin.musicplayer13.Model.SongsList;
 import com.jatin.musicplayer13.R;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,AllSongFragment.createDataParse,FavSongFragment.createDataParsed,CurrentSongFragment.createDataParsed {
@@ -311,6 +312,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
 
     }
+
+    /**
+     * Fuction for Notification bar
+     * */
 
 
     /**
