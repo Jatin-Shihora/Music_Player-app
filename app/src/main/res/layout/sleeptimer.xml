@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#020202"
+    android:backgroundTint="#000000">
+
+    <SeekBar
+        android:id="@+id/TimerBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="#39088F"
+        android:max="60"
+        android:paddingTop="30dp"
+        android:progressBackgroundTint="#FA4F00"
+        android:progressTint="#E91E63"
+        android:thumbTint="#F44336"
+        app:tickMarkTint="#40A845">
+
+    </SeekBar>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/TimerBar"
+    android:weightSum="2">
+
+    <Button
+        android:id="@+id/SetTimer"
+        android:text="Set Timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:backgroundTint="#FF9800"
+        tools:ignore="ButtonStyle">
+    </Button>
+
+    <Button
+        android:id="@+id/CancelTimer"
+        android:text="Cancel Timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:backgroundTint="#FF9800"
+        tools:ignore="ButtonStyle">
+    </Button>
+</LinearLayout>
+
+</RelativeLayout>
