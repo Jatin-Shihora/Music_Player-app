@@ -2,11 +2,16 @@ package com.jatin.musicplayer13.Activity;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -23,6 +28,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -34,6 +41,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.jatin.musicplayer13.Adapter.ViewPagerAdapter;
 import com.jatin.musicplayer13.DB.FavoritesOperations;
+import com.jatin.musicplayer13.Features.SleepTimer;
 import com.jatin.musicplayer13.Fragments.AllSongFragment;
 import com.jatin.musicplayer13.Fragments.CurrentSongFragment;
 import com.jatin.musicplayer13.Fragments.FavSongFragment;
@@ -41,6 +49,7 @@ import com.jatin.musicplayer13.Model.SongsList;
 import com.jatin.musicplayer13.R;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,AllSongFragment.createDataParse,FavSongFragment.createDataParsed,CurrentSongFragment.createDataParsed {
 
@@ -61,10 +70,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     *favflag boolean is used here for checking weather the user can add a song fav or not
     *playContinueFlag boolean is used for weather the loop is active or not
     *playlistflag boolean is used for weather the playlist is fetched or not
+    *Shuffle boolean is used for weather the suffle play is on or off
  */
-    private boolean checkFlag = false, repeatFlag = false, playContinueFlag = false, favFlag = true, playlistFlag = false;
+    private boolean Shuffle=false,checkFlag = false, repeatFlag = false, playContinueFlag = false, favFlag = true, playlistFlag = false;
     private final int MY_PERMISSION_REQUEST = 100;
     private int allSongLength;
+
 
     MediaPlayer mediaPlayer;
     Handler handler;
@@ -84,10 +95,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
 
     private void init() {
+        //Because you must create the notification channel
+        //before posting any notifications on Android 8.0 and higher,
+        //you should execute this code as soon as your app starts
+        createNotificationChannel();
+
         imgBtnPrev = findViewById(R.id.img_btn_previous);
         imgBtnNext = findViewById(R.id.img_btn_next);
         imgbtnReplay = findViewById(R.id.img_btn_replay);
-        imgBtnSetting = findViewById(R.id.img_btn_setting);
+        imgBtnSetting = findViewById(R.id.img_btn_Loop);
 
         tvCurrentTime = findViewById(R.id.tv_current_time);
         tvTotalTime = findViewById(R.id.tv_total_time);
@@ -125,6 +141,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.nav_about://for about button in navigationBar
                         about();//shows the text in about button if clicked
                         break;
+                    case R.id.nav_sleep_timer:
+                        Sleeptimer();
+                        break;
+                    case R.id.nav_Shuffle_Play:
+                        Shuffleplay();
+
                 }
                 return true;
             }
@@ -247,6 +269,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alertDialog.show();
     }
 
+    /**Function to ShufflePlay the songs
+     * @param rand for generating random outputs*/
+    private Random rand;
+    public void Shuffleplay(){
+        rand=new Random();
+        setShuffle();
+        playNext();
+        if (Shuffle==true) {
+            Toast.makeText(MainActivity.this,"Shuffle song is -ON",Toast.LENGTH_SHORT).show();
+        }else
+            Toast.makeText(MainActivity.this,"Shuffle Song -OF" ,Toast.LENGTH_SHORT).show();
+    }
+
+    /**Function to to toggle the boolean Shuffle */
+    public void setShuffle(){
+        if(Shuffle) Shuffle=false;
+        else Shuffle=true;
+    }
+
+    /**This function will play the shuffled songs  */
+    public void playNext(){
+        if (Shuffle){
+            int newsong=currentPosition;
+            while (newsong==currentPosition){
+                newsong =rand.nextInt(songList.size());
+            }
+            currentPosition=newsong;
+        }else{
+            currentPosition++;
+            if (currentPosition == songList.size()) currentPosition=0;
+        }
+    }
+
+
+
+    /**
+     * Function to show SLEEPTIMER FUNCTION*/
+    public void Sleeptimer(){
+        Intent sleeptimer = new Intent(MainActivity.this, SleepTimer.class);
+        startActivity(sleeptimer);
+            }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) //this function is called when the menu button of the device is pressed
      {
@@ -313,9 +377,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    /**Before you can deliver the notification on Android 8.0 and higher,
+    you must register your app's notification channel with the system
+    by passing an instance of NotificationChannel to createNotificationChannel()*/
+
+    private void createNotificationChannel(){
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name= getString(R.string.channel_name);
+            String description=getString(R.string.channel_description);
+            int importance= NotificationManager.IMPORTANCE_LOW;
+            NotificationChannel channel = new NotificationChannel("0",name,importance );
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
     /**
-     * Fuction for Notification bar
+     * Function for Notification bar //ITS PENDING-HELPER ACTIVITY,MY NOTIFICATION,NOTIFICATION LAYOUT
      * */
+    private void addNotification(){
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this,"0")
+                .setSmallIcon(R.drawable.icon_img)//icon in notification bar
+                .setContentTitle(getTitle())//this is the heading title
+                .setContentText("This is a demo notification")
+                .setPriority(NotificationCompat.PRIORITY_LOW);
+
+        Intent notificationIntent = new Intent(this,MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this,0,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+        // Add as notification
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(1, builder.build());
+    }
+
 
 
     /**
@@ -355,12 +457,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (repeatFlag)//if flag is true means already replaying therefore replaying can be removed
                 {
-                    Toast.makeText(this, "Replaying Removed..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Loop Song Deactivated", Toast.LENGTH_SHORT).show();
                     mediaPlayer.setLooping(false);
                     repeatFlag = false;
                 } else //if flag is false means replaying can be added
                     {
-                    Toast.makeText(this, "Replaying Added..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Loop Song Activated", Toast.LENGTH_SHORT).show();
                     mediaPlayer.setLooping(true);
                     repeatFlag = true;
                 }
@@ -403,15 +505,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "Select the Song ..", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.img_btn_setting:
+            case R.id.img_btn_Loop:
                 if (!playContinueFlag) //if flag is false loop can be addded
                 {
                     playContinueFlag = true;
-                    Toast.makeText(this, "Loop Added", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Loop List Activated", Toast.LENGTH_SHORT).show();
                 } else //else remove the loop from songs
                     {
                     playContinueFlag = false;
-                    Toast.makeText(this, "Loop Removed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Loop List Deactivated", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -475,6 +577,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mediaPlayer.start();
         playCycle();
         checkFlag = true;//true->user has selected an song
+
+        //this will trigger the Notification bar every time we play a song
+        addNotification();
+
         if (mediaPlayer.isPlaying())
         {
             imgBtnPlayPause.setImageResource(R.drawable.pause_icon);//setting the image to pause icon since song is playing
@@ -508,6 +614,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void playCycle() //in a different thread tracking of time & progressbar
     {
+
         try {
             seekbarController.setProgress(mediaPlayer.getCurrentPosition());
             tvCurrentTime.setText(getTimeFormatted(mediaPlayer.getCurrentPosition()));

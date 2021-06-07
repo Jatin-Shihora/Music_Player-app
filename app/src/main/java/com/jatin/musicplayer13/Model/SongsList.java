@@ -47,4 +47,10 @@ public class SongsList {
         return subTitle;
     }
 
+    /**
+     * sets the SubTitle of the song*/
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
+
 }

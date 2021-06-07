@@ -1,4 +1,4 @@
-slepp timer
+sleep timer
 ahuffle
 current song tile highlight
 refresh +playlist

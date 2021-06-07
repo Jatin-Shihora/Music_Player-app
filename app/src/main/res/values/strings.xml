@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Music Player</string>
         <string name="title">__ Music</string>
-        <string name="theme_color" >Theme Color</string>
+        <string name="shuffle_play" >Shuffle Play</string>
         <string name="sleep_timer">Sleep Timer</string>
         <string name="rate_app">Rate This App</string>
         <string name="about">About</string>
         <string name="search">Search</string>
         <string name="favorites">Favorites</string>
+        <string name="channel_name">Media Notification Playback Channel</string>
+        <string name="channel_description">The Music Player Notification Controls</string>
         <string name="about_text">___ Music is an application to play mp3 music on your android device. With simple interface make you enjoy the music
         easily.
     </string>

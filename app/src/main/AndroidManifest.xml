@@ -14,6 +14,9 @@
         android:theme="@style/AppTheme"
         android:testOnly="false">
         <activity
+            android:name=".Features.SleepTimer">
+        </activity>
+        <activity
             android:name=".Activity.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">

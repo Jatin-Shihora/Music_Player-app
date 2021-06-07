@@ -50,12 +50,12 @@
             android:tint="@android:color/holo_orange_light" />
 
         <ImageButton
-            android:id="@+id/img_btn_setting"
+            android:id="@+id/img_btn_Loop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:backgroundTint="@color/design_default_color_on_secondary"
-            android:src="@drawable/ic_settings"
+            android:src="@drawable/loop_list"
             android:tint="@android:color/holo_orange_light" />
     </LinearLayout>
 
@@ -83,8 +83,9 @@
             android:layout_gravity="center"
             android:backgroundTint="@color/design_default_color_error"
             android:fitsSystemWindows="true"
+            android:progressBackgroundTint="#FF9800"
             android:progressTint="@color/design_default_color_error"
-            android:thumbTint="@color/text_color"
+            android:thumbTint="#FA3D2F"
             app:tickMarkTint="#1221D4F3" />
 
         <TextView

@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:divider="@android:color/holo_orange_dark"
         android:dividerHeight="1dp"
-        android:longClickable="true" />
+        android:longClickable="true"
+        />
 
 
 </LinearLayout>

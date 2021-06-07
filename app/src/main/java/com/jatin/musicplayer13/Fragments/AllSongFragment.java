@@ -107,6 +107,9 @@ public class AllSongFragment extends ListFragment {
                     createDataParse.onDataPass(newList.get(position).getTitle(), newList.get(position).getPath());
                     createDataParse.fullSongList(songsList, position);
                 }
+                //this sets the background color of the tile song that we clicked to grey
+               // view.setBackgroundColor(Color.GRAY);
+
             }
         });
         //the below longclicklistener is used here with listview so when a user longpress the tile it will show a dialog window
