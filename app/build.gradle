@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.jatin.musicplayer13"
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
